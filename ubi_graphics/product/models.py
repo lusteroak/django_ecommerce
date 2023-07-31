@@ -43,9 +43,9 @@ class Product(models.Model):
 
                 return self.thumbnail.url
             else:
-                return 'https://via.placeholder.com/240x240x.jpg'
+                return 'https://placehold.co/240x240/png'
     
-    def make_thumbnail(self, image, size=(300, 300)):
+    def make_thumbnail(self, image, size=(240, 240)):
         img = Image.open(image)
         img.convert('RGB')
         img.thumbnail(size)
