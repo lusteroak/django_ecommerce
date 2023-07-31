@@ -1,6 +1,9 @@
 from django.contrib.auth import login
 from django.db.models import Q
 
+from django.contrib.auth.decorators import login_required
+
+
 from django.shortcuts import render, redirect
 
 from product.models import Product, Category
@@ -51,3 +54,21 @@ def shop(request):
         'active_category': active_category
     }
     return render(request, 'core/shop.html', context)
+
+@login_required
+def my_account(request):
+    return render(request, 'core/myaccount.html')
+
+@login_required
+def edit_my_account(request):
+    if request.method == 'POST':
+        user = request.user
+        user.first_name = request.POST.get('first_name')
+        user.last_name = request.POST.get('last_name')
+        user.username = request.POST.get('username')
+        user.email = request.POST.get('email')
+        user.save()
+
+        return redirect('my_account')
+        
+    return render(request, 'core/edit_myaccount.html')
