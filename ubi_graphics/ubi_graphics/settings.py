@@ -34,6 +34,10 @@ LOGIN_URL = '/login/'
 SESSION_COOKIE_AGE = 86400
 CART_SESSION_ID = 'cart'
 
+STRIPE_API_KEY_PUBLISHABLE = 'pk_test_51Na8QDFmgTbJk6dd3QNg1M6cgHuDSwZ379nKJNx9E08rinMLluGZEd7UZNfFT01r4x8lPT0sSN3DGAgGHkRosPlX006wRBODdp'
+STRIPE_API_KEY_HIDDEN = 'sk_test_51Na8QDFmgTbJk6dd8iid7IHdKwzJaXbjPKPjM1gCOLJWTR1lBmWyFRPogrtb28Qu8EYu50QsMygnjuH8p56Xwoxp00TCPWXtQg'
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -47,6 +51,7 @@ INSTALLED_APPS = [
     'core',
     'product',
     'cart',
+    'order',
 ]
 
 MIDDLEWARE = [
